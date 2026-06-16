@@ -1,1 +1,169 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>School STEM Labs | ZOZOTRONICS</title><meta name="description" content="Zozotronics helps schools build STEM labs with robotics kits, curriculum, teacher support and hands-on learning modules."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><header class="topbar"><div class="container nav"><a class="brand" href="index.html"><img src="logo.png" alt="Zozotronics logo">ZOZOTRONICS</a><nav class="links"><a href="index.html">Home</a><a href="projects.html">Projects</a><a class="active" href="schools.html">School Labs</a><a href="contact.html">Contact</a></nav><div class="actions"><a class="btn primary" href="contact.html">Request Proposal</a><a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a></div><button class="menu" data-menu>Menu</button></div><div class="mobile-panel container"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="schools.html">School Labs</a><a href="contact.html">Contact</a><a class="btn primary" href="contact.html">Request Proposal</a><a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a></div></header><main><section class="page-hero"><div class="container"><span class="badge">🏫 STEM Labs</span><h1>Build a robotics and innovation lab for your school.</h1><p>Curriculum-ready kits, project modules, lab planning and training support for practical STEM education.</p></div></section><section class="section"><div class="container split"><div class="reveal"><span class="kicker">For Institutions</span><h2>Everything required for hands-on robotics learning.</h2><p style="color:var(--muted)">Zozotronics can help schools structure a practical STEM program with project kits, experiment modules and mentoring support.</p><ul class="list"><li>Class-wise robotics modules</li><li>Arduino, electronics and IoT kits</li><li>Teacher orientation and project guidance</li><li>Exhibition and competition project planning</li><li>Consumable component planning</li></ul><a class="btn primary" href="contact.html">Request School Proposal</a></div><div class="panel lab-visual reveal"><h2 style="color:white">Lab Partnership Modules</h2><div class="step" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:white"><span class="num" style="background:white;color:var(--navy)">1</span><div><strong>Starter Lab</strong><br>Basic electronics, sensors and Arduino projects.</div></div><div class="step" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:white"><span class="num" style="background:white;color:var(--navy)">2</span><div><strong>Robotics Lab</strong><br>Mobile robots, automation and competition-ready models.</div></div><div class="step" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:white"><span class="num" style="background:white;color:var(--navy)">3</span><div><strong>IoT Lab</strong><br>ESP, Wi-Fi, dashboards and smart automation projects.</div></div></div></div></section><section class="section alt"><div class="container"><div class="section-head reveal"><span class="kicker">Benefits</span><h2>Why schools use a structured STEM lab.</h2></div><div class="grid-3"><article class="card reveal"><div class="icon">🧠</div><h3>Concept Clarity</h3><p>Students learn electronics, coding and mechanics by building working models.</p></article><article class="card reveal"><div class="icon">🏆</div><h3>Competition Ready</h3><p>Project themes can be prepared for exhibitions, fairs and robotics contests.</p></article><article class="card reveal"><div class="icon">📦</div><h3>Organized Kits</h3><p>Components, modules and activities are grouped for easier teaching and maintenance.</p></article></div></div></section></main><footer class="footer"><div class="container footer-grid"><div><h4>ZOZOTRONICS</h4><p>STEM lab and robotics education partner.</p></div><div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="projects.html">Projects</a></p></div><div><h4>School Support</h4><p>Curriculum</p><p>Lab Setup</p><p>Teacher Guidance</p></div><div><h4>Contact</h4><p>+91 73038 32492 </p><p>kidtronics07@gmail.com</p></div></div><div class="container footer-bottom">© 2026 Zozotronics.</div></footer><a class="whatsapp-float" href="https://wa.me/7303832492" aria-label="WhatsApp">☘</a><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Labs & STEM Setup | ZOZOTRONICS</title>
+  <meta name="description" content="Setup comprehensive Robotics and STEM labs for schools with custom curriculum and kit models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .configurator-box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 40px;
+    }
+    [data-theme="dark"] .configurator-box {
+      background: #1c2541;
+      border-color: #3a506b;
+    }
+    .lab-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      background: white;
+      transition: border-color 0.2s;
+    }
+    [data-theme="dark"] .lab-option {
+      background: #0b132b;
+      border-color: #3a506b;
+    }
+    .lab-option:hover {
+      border-color: #1e3a8a;
+    }
+    .lab-option input {
+      margin-top: 4px;
+      transform: scale(1.2);
+    }
+    .summary-panel {
+      background: #1e3a8a;
+      color: white;
+      padding: 24px;
+      border-radius: 12px;
+      margin-top: 24px;
+      text-align: center;
+    }
+    .summary-panel h3 { color: white; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="logo.png" alt="Zozotronics logo">ZOZOTRONICS</a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a class="active" href="schools.html">School Labs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a class="btn primary" href="contact.html">Request Project</a>
+        <a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge">🏫 Institutional Support</span>
+        <h1>Establish World-Class STEM Labs in Your School.</h1>
+        <p>We provide standard hardware modules, custom textbook curriculum alignment, teacher training solutions, and direct competition project support layout frameworks across India.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <h2>Interactive STEM Lab Planner</h2>
+        <p>Select the educational modules below that match your institution's grade levels or technical targets to instantly compile your inquiry package requirements:</p>
+        
+        <div class="configurator-box">
+          <label class="lab-option">
+            <input type="checkbox" class="lab-choice" data-name="Junior STEM Models (Grades 5-7)" checked>
+            <div>
+              <strong>Junior STEM Models (Grades 5-7)</strong>
+              <p style="margin:4px 0 0 0; font-size:14px; color:gray;">Basic electronics components, non-programming smart models, solar cells, and structural mechanics blocks.</p>
+            </div>
+          </label>
+
+          <label class="lab-option">
+            <input type="checkbox" class="lab-choice" data-name="Core Arduino Robotics (Grades 8-10)">
+            <div>
+              <strong>Core Arduino Microcontrollers (Grades 8-10)</strong>
+              <p style="margin:4px 0 0 0; font-size:14px; color:gray;">C++ coding baseline logic, sensor integrations (ultrasonic, IR array), chassis builds, and remote control links.</p>
+            </div>
+          </label>
+
+          <label class="lab-option">
+            <input type="checkbox" class="lab-choice" data-name="Advanced IoT & Automation (Grades 11-12)">
+            <div>
+              <strong>Advanced IoT, Telemetry & Wireless Automation (Grades 11-12)</strong>
+              <p style="margin:4px 0 0 0; font-size:14px; color:gray;">ESP8266/ESP32 Wi-Fi architecture configs, server interactions, remote tracking nodes, and automated relays.</p>
+            </div>
+          </label>
+
+          <label class="lab-option">
+            <input type="checkbox" class="lab-choice" data-name="Institutional Teacher Training Pack">
+            <div>
+              <strong>Institutional Faculty Training Bootcamps</strong>
+              <p style="margin:4px 0 0 0; font-size:14px; color:gray;">Comprehensive training workshops for school science staff alongside mapped presentation slideshow matrices.</p>
+            </div>
+          </label>
+
+          <div class="summary-panel">
+            <h3>Your Configured Lab Summary</h3>
+            <p id="configCounter" style="font-size: 15px; margin-bottom: 16px;">1 Module Selected</p>
+            <a id="whatsappLabBtn" class="btn orange" href="#" target="_blank">Submit Lab Proposal on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><h4>ZOZOTRONICS</h4><p>Robotics kits and STEM projects for students.</p></div>
+      <div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="projects.html">Projects</a></p></div>
+      <div><h4>Contact</h4><p>+91 73038 32492</p><p>kidtronics07@gmail.com</p></div>
+    </div>
+    <div class="container footer-bottom">© 2026 Zozotronics.</div>
+  </footer>
+
+  <script>
+    // Configurator Selection Matrix Compilation Logic Chunk
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkboxes = document.querySelectorAll('.lab-choice');
+      const counterText = document.getElementById('configCounter');
+      const waButton = document.getElementById('whatsappLabBtn');
+
+      function updateLabProposal() {
+        let selectedModules = [];
+        checkboxes.forEach(box => {
+          if(box.checked) {
+            selectedModules.push(box.getAttribute('data-name'));
+          }
+        });
+
+        counterText.textContent = `${selectedModules.length} Module${selectedModules.length === 1 ? '' : 's'} Selected`;
+
+        // Format direct message component string parameters for API transmission links
+        const baseMsg = `Hi Zozotronics! I am planning a STEM lab setup for my school. Here are the modules I am interested in exploring:\n\n` + selectedModules.map((m, idx) => `${idx + 1}. ${m}`).join('\n');
+        
+        waButton.href = `https://wa.me/7303832492?text=${encodeURIComponent(baseMsg)}`;
+      }
+
+      checkboxes.forEach(box => box.addEventListener('change', updateLabProposal));
+      updateLabProposal(); // Initial dynamic string construct validation frame pass
+    });
+  </script>
+</body>
+</html>
