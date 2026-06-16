@@ -1,1 +1,319 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Projects & Kits | ZOZOTRONICS</title><meta name="description" content="Explore robotics, IoT, Arduino, ESP and STEM project kits from Zozotronics."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body><header class="topbar"><div class="container nav"><a class="brand" href="index.html"><img src="logo.png" alt="Zozotronics logo">ZOZOTRONICS</a><nav class="links"><a href="index.html">Home</a><a class="active" href="projects.html">Projects</a><a href="schools.html">School Labs</a><a href="contact.html">Contact</a></nav><div class="actions"><a class="btn primary" href="contact.html">Request Project</a><a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a></div><button class="menu" data-menu>Menu</button></div><div class="mobile-panel container"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="schools.html">School Labs</a><a href="contact.html">Contact</a><a class="btn primary" href="contact.html">Request Project</a><a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a></div></header><main><section class="page-hero"><div class="container"><span class="badge">🤖 Project Kits</span><h1>Robotics and STEM projects ready to build.</h1><p>Choose a category, then request complete components, code guidance, wiring support and project explanation through WhatsApp.</p></div></section><section class="section"><div class="container"><div class="filters"><span class="pill active">All</span><span class="pill">Arduino</span><span class="pill">ESP/IoT</span><span class="pill">School Models</span><span class="pill">Advanced Robotics</span></div><div class="grid-3"><article class="card product reveal"><div class="product-visual">🚗</div><h3>Obstacle Avoiding Robot</h3><p>Ultrasonic sensor robot with motor driver and beginner-friendly wiring.</p><ul class="list"><li>Arduino compatible</li><li>Simple explanation</li><li>Good for school demo</li></ul><a class="btn primary" href="contact.html">Request Kit</a></article><article class="card product reveal"><div class="product-visual">📱</div><h3>Bluetooth Controlled Car</h3><p>Mobile-controlled robot car with motor driver, battery wiring and app control.</p><ul class="list"><li>Wireless control</li><li>Beginner robotics</li><li>Fast build</li></ul><a class="btn primary" href="contact.html">Request Kit</a></article><article class="card product reveal"><div class="product-visual">🏠</div><h3>IoT Smart Home</h3><p>ESP8266/ESP32 automation project for lights, relays and sensor dashboards.</p><ul class="list"><li>Wi-Fi control</li><li>Automation logic</li><li>IoT presentation</li></ul><a class="btn primary" href="contact.html">Request Kit</a></article><article class="card product reveal"><div class="product-visual">⚖️</div><h3>Self Balancing Robot</h3><p>MPU6050, motor driver and PID control concept for advanced learners.</p><ul class="list"><li>Advanced robotics</li><li>Sensor fusion concept</li><li>Control system demo</li></ul><a class="btn primary" href="contact.html">Request Kit</a></article><article class="card product reveal"><div class="product-visual">🌱</div><h3>Smart Irrigation</h3><p>Soil moisture sensing project with relay-controlled water pump automation.</p><ul class="list"><li>Agriculture model</li><li>Sensor-based</li><li>School exhibition</li></ul><a class="btn primary" href="contact.html">Request Kit</a></article><article class="card product reveal"><div class="product-visual">🔐</div><h3>RFID Door Lock</h3><p>Security project with RFID module, servo/relay and access control logic.</p><ul class="list"><li>Security system</li><li>Arduino based</li><li>Clear demo flow</li></ul><a class="btn primary" href="contact.html">Request Kit</a></article></div></div></section></main><footer class="footer"><div class="container footer-grid"><div><h4>ZOZOTRONICS</h4><p>Robotics kits and STEM projects for students.</p></div><div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="schools.html">School Labs</a></p></div><div><h4>Support</h4><p>WhatsApp Guidance</p><p>Custom Projects</p></div><div><h4>Contact</h4><p>+91 73038 32492</p><p>kidtronics07@gmail.com</p></div></div><div class="container footer-bottom">© 2026 Zozotronics.</div></footer><a class="whatsapp-float" href="https://wa.me/7303832492" aria-label="WhatsApp">☘</a><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects & Kits | ZOZOTRONICS</title>
+  <meta name="description" content="Explore robotics, IoT, Arduino, ESP and STEM project kits from Zozotronics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Smooth CSS animations for the category filter */
+    .product {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .product.hidden {
+      display: none !important;
+    }
+    .pill {
+      cursor: pointer;
+      user-select: none;
+    }
+    /* Style for the custom project showcase section */
+    .custom-project-box {
+      background: linear-gradient(135deg, #1e3a8a, #0d1b3e);
+      color: white;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 60px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .custom-project-box h2 {
+      color: white;
+      margin-bottom: 12px;
+    }
+    .custom-project-box p {
+      color: #dbe7ff;
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="logo.png" alt="Zozotronics logo">ZOZOTRONICS</a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="schools.html">School Labs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a class="btn primary" href="contact.html">Request Project</a>
+        <a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a>
+      </div>
+      <button class="menu" data-menu>Menu</button>
+    </div>
+    <div class="mobile-panel container">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="schools.html">School Labs</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn primary" href="contact.html">Request Project</a>
+      <a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="badge">🤖 Project Kits</span>
+        <h1>Robotics and STEM projects ready to build.</h1>
+        <p>Choose a category, then request complete components, code guidance, wiring support and project explanation through WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Functional Category Pills -->
+        <div class="filters">
+          <span class="pill active" data-filter="all">All</span>
+          <span class="pill" data-filter="arduino">Arduino</span>
+          <span class="pill" data-filter="esp-iot">ESP/IoT</span>
+          <span class="pill" data-filter="school-models">School Models</span>
+          <span class="pill" data-filter="advanced-robotics">Advanced Robotics</span>
+        </div>
+
+        <!-- Comprehensive Project Grid -->
+        <div class="grid-3" id="projectGrid">
+          
+          <article class="card product reveal" data-category="arduino advanced-robotics">
+            <div class="product-visual">🚗</div>
+            <h3>Obstacle Avoiding Robot</h3>
+            <p>Ultrasonic sensor robot with motor driver and beginner-friendly wiring.</p>
+            <ul class="list">
+              <li>Arduino compatible</li>
+              <li>Simple explanation</li>
+              <li>Good for school demo</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Obstacle%20Avoiding%20Robot%20Kit.">Request Kit</a>
+          </article>
+
+          <article class="card product reveal" data-category="arduino advanced-robotics">
+            <div class="product-visual">📱</div>
+            <h3>Bluetooth Controlled Car</h3>
+            <p>Mobile-controlled robot car with motor driver, battery wiring and app control.</p>
+            <ul class="list">
+              <li>Wireless control</li>
+              <li>Beginner robotics</li>
+              <li>Fast build</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Bluetooth%20Controlled%20Car%20Kit.">Request Kit</a>
+          </article>
+
+          <article class="card product reveal" data-category="esp-iot">
+            <div class="product-visual">🏠</div>
+            <h3>IoT Smart Home</h3>
+            <p>ESP8266/ESP32 automation project for lights, relays and sensor dashboards.</p>
+            <ul class="list">
+              <li>Wi-Fi control</li>
+              <li>Automation logic</li>
+              <li>IoT presentation</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20IoT%20Smart%20Home%20Kit.">Request Kit</a>
+          </article>
+
+          <article class="card product reveal" data-category="advanced-robotics">
+            <div class="product-visual">⚖️</div>
+            <h3>Self Balancing Robot</h3>
+            <p>MPU6050, motor driver and PID control concept for advanced learners.</p>
+            <ul class="list">
+              <li>Advanced robotics</li>
+              <li>Sensor fusion concept</li>
+              <li>Control system demo</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Self%20Balancing%20Robot%20Kit.">Request Kit</a>
+          </article>
+
+          <article class="card product reveal" data-category="school-models arduino">
+            <div class="product-visual">🌱</div>
+            <h3>Smart Irrigation</h3>
+            <p>Soil moisture sensing project with relay-controlled water pump automation.</p>
+            <ul class="list">
+              <li>Agriculture model</li>
+              <li>Sensor-based</li>
+              <li>School exhibition</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Irrigation%20Kit.">Request Kit</a>
+          </article>
+
+          <article class="card product reveal" data-category="school-models arduino">
+            <div class="product-visual">🔐</div>
+            <h3>RFID Door Lock</h3>
+            <p>Security project with RFID module, servo/relay and access control logic.</p>
+            <ul class="list">
+              <li>Security system</li>
+              <li>Arduino based</li>
+              <li>Clear demo flow</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20RFID%20Door%20Lock%20Kit.">Request Kit</a>
+          </article>
+
+          <!-- New Project Addition 1 -->
+          <article class="card product reveal" data-category="arduino advanced-robotics">
+            <div class="product-visual">🏁</div>
+            <h3>Line Follower Robot</h3>
+            <p>Autonomous bot that tracks black lines perfectly using a dual IR sensor module array.</p>
+            <ul class="list">
+              <li>No programming option</li>
+              <li>Classic competition build</li>
+              <li>Highly stable configuration</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Line%20Follower%20Robot%20Kit.">Request Kit</a>
+          </article>
+
+          <!-- New Project Addition 2 -->
+          <article class="card product reveal" data-category="arduino school-models">
+            <div class="product-visual">📡</div>
+            <h3>Radar Tracking System</h3>
+            <p>Ultrasonic map plotter tracking objects using a rotating structural servo bracket setup.</p>
+            <ul class="list">
+              <li>Visual interface mapping</li>
+              <li>Excellent science fair pick</li>
+              <li>Includes servo controls</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Radar%20Tracking%20System%20Kit.">Request Kit</a>
+          </article>
+
+          <!-- New Project Addition 3 -->
+          <article class="card product reveal" data-category="school-models">
+            <div class="product-visual">🗑️</div>
+            <h3>Smart Dustbin Model</h3>
+            <p>Touchless auto-opening dustbin using proximity modules and a micro actuator motor.</p>
+            <ul class="list">
+              <li>Zero coding overhead option</li>
+              <li>Great elementary project</li>
+              <li>Eco-innovation theme</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Dustbin%20Model%20Kit.">Request Kit</a>
+          </article>
+
+          <!-- New Project Addition 4 -->
+          <article class="card product reveal" data-category="esp-iot school-models">
+            <div class="product-visual">🌤️</div>
+            <h3>IoT Weather Station</h3>
+            <p>Real-time microclimate hub broadcasting live air metrics directly to custom dashboards.</p>
+            <ul class="list">
+              <li>Cloud telemetry tracking</li>
+              <li>Advanced DHT sensor integrations</li>
+              <li>Great remote ecosystem node</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20IoT%20Weather%20Station%20Kit.">Request Kit</a>
+          </article>
+
+          <!-- New Project Addition 5 -->
+          <article class="card product reveal" data-category="advanced-robotics arduino">
+            <div class="product-visual">🦾</div>
+            <h3>Bluetooth Robotic Arm</h3>
+            <p>Multi-axis articulation crane arm controlled seamlessly via wireless application links.</p>
+            <ul class="list">
+              <li>Precision servo coordination</li>
+              <li>Mechanical linkages assembly</li>
+              <li>High engagement project</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Bluetooth%20Robotic%20Arm%20Kit.">Request Kit</a>
+          </article>
+
+          <!-- New Project Addition 6 -->
+          <article class="card product reveal" data-category="arduino school-models">
+            <div class="product-visual">🦯</div>
+            <h3>Smart Blind Stick</h3>
+            <p>Social innovation assistive tech using sound arrays to alert sensory blocks cleanly.</p>
+            <ul class="list">
+              <li>Acoustic notification buzzers</li>
+              <li>Social project entry pick</li>
+              <li>Very practical wiring flow</li>
+            </ul>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Blind%20Stick%20Kit.">Request Kit</a>
+          </article>
+
+        </div>
+
+        <!-- Custom Project Interaction Element -->
+        <div class="custom-project-box reveal">
+          <h2>Have a unique project idea or specific school requirement?</h2>
+          <p>Tell us your custom requirements, component specifications, or school theme. We will curate the ideal custom kit, diagram layout, and clear logic support just for your workspace.</p>
+          <a class="btn orange" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20want%20to%20submit%20a%20requirement%20for%20a%20custom%20STEM/Robotics%20project.">Discuss Custom Build on WhatsApp</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>ZOZOTRONICS</h4>
+        <p>Robotics kits and STEM projects for students.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="schools.html">School Labs</a></p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <p>WhatsApp Guidance</p>
+        <p>Custom Projects</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>+91 73038 32492</p>
+        <p>kidtronics07@gmail.com</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 Zozotronics.</div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/7303832492" aria-label="WhatsApp">☘</a>
+  
+  <script src="script.js"></script>
+
+  <!-- Filter Functionality Logic Chunks -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pills = document.querySelectorAll('.filters .pill');
+      const products = document.querySelectorAll('#projectGrid .product');
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', function() {
+          // Remove active color layout from old pills
+          pills.forEach(p => p.classList.remove('active'));
+          // Apply active styling highlight to clicked choice
+          this.classList.add('active');
+
+          const filterValue = this.getAttribute('data-filter');
+
+          products.forEach(product => {
+            const categories = product.getAttribute('data-category').split(' ');
+            
+            if (filterValue === 'all' || categories.includes(filterValue)) {
+              product.classList.remove('hidden');
+              // Little CSS reset trigger for custom reveal engines if active
+              setTimeout(() => { product.style.opacity = '1'; product.style.transform = 'scale(1)'; }, 10);
+            } else {
+              product.style.opacity = '0';
+              product.style.transform = 'scale(0.95)';
+              product.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
