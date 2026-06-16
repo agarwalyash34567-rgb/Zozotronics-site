@@ -10,14 +10,160 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Custom Styles for the Music Control Button -->
   <style>
+    /* ==========================================================================
+       OPTION 2: COMPREHENSIVE DARK MODE VARIANTS
+       ========================================================================== */
+    :root {
+      --bg-primary: #ffffff;
+      --text-main: #111827;
+      --card-bg: #f9fafb;
+      --border-color: #e5e7eb;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0b132b;
+      --text-main: #f3f4f6;
+      --card-bg: #1c2541;
+      --border-color: #3a506b;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Target global structural elements to shift color profiles smoothly */
+    [data-theme="dark"] .card, [data-theme="dark"] .stat, [data-theme="dark"] .topbar {
+      background-color: var(--card-bg) !important;
+      color: var(--text-main) !important;
+      border-color: var(--border-color) !important;
+    }
+    [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] strong, [data-theme="dark"] .links a {
+      color: #ffffff !important;
+    }
+
+    /* Style for the Theme Toggle Switch */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border-color);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      color: var(--text-main);
+    }
+    .theme-toggle:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    [data-theme="dark"] .theme-toggle:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ==========================================================================
+       OPTION 1: DIGITAL NODE CIRCUIT CANVAS LAYOUT
+       ========================================================================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+    #circuitCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none; /* Allows text selection and clicks to go through */
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1; /* Places website hero info directly over background art nodes */
+    }
+
+    /* ==========================================================================
+       OPTION 3: DYNAMIC FILTER CLASSES
+       ========================================================================== */
+    .product {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .product.hidden {
+      display: none !important;
+    }
+    .filters {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .pill {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* ==========================================================================
+       OPTION 4: ACCORDION DROPDOWNS FOR FAQs
+       ========================================================================== */
+    .faq-section {
+      padding: 60px 0;
+    }
+    .faq-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+    }
+    .faq-trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 10px 0;
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: #6b7280;
+    }
+    [data-theme="dark"] .faq-content {
+      color: #9ca3af;
+    }
+    .faq-item.open .faq-content {
+      max-height: 200px; /* Big enough to comfortably fit responses */
+      padding-top: 10px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Original floating music component parameters preserved */
     .music-control-btn {
       position: fixed;
-      bottom: 90px; /* Positioned right above your floating WhatsApp button */
+      bottom: 90px;
       right: 20px;
       z-index: 999;
-      background: var(--primary, #1e3a8a); /* Fallback to standard theme deep blue if variable isn't set */
+      background: #1e3a8a;
       color: #ffffff;
       border: none;
       border-radius: 50px;
@@ -30,15 +176,9 @@
       gap: 8px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      transition: transform 0.2s ease;
     }
-    .music-control-btn:hover {
-      transform: scale(1.05);
-      opacity: 0.95;
-    }
-    .music-icon {
-      font-size: 16px;
-    }
+    .music-control-btn:hover { transform: scale(1.05); opacity: 0.95; }
   </style>
 </head>
 <body>
@@ -48,7 +188,11 @@
       <nav class="links">
         <a class="active" href="index.html">Home</a><a href="projects.html">Projects</a><a href="schools.html">School Labs</a><a href="contact.html">Contact</a>
       </nav>
-      <div class="actions"><a class="btn primary" href="contact.html">Request Project</a><a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a></div>
+      <div class="actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">🌙 Dark</button>
+        <a class="btn primary" href="contact.html">Request Project</a>
+        <a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a>
+      </div>
       <button class="menu" data-menu>Menu</button>
     </div>
     <div class="mobile-panel container"><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="schools.html">School Labs</a><a href="contact.html">Contact</a><a class="btn primary" href="contact.html">Request Project</a><a class="btn orange" href="https://wa.me/7303832492">WhatsApp</a></div>
@@ -56,6 +200,8 @@
 
   <main>
     <section class="hero">
+      <canvas id="circuitCanvas"></canvas>
+      
       <div class="container hero-grid">
         <div>
           <span class="badge">⚙ Leading STEM Education in India</span>
@@ -112,10 +258,58 @@
     <section class="section">
       <div class="container">
         <div class="section-head reveal"><span class="kicker">Featured Kits</span><h2>Project categories for students and schools.</h2></div>
-        <div class="grid-3">
-          <article class="card product reveal"><div class="product-visual">🚗</div><h3>Obstacle Avoiding Robot</h3><p>Beginner-friendly robotics kit with ultrasonic sensing and motor control.</p><div class="price"><strong>Project Kit</strong><a class="btn ghost" href="projects.html">View</a></div></article>
-          <article class="card product reveal"><div class="product-visual">🌐</div><h3>IoT Smart Home</h3><p>ESP-based automation project for lights, sensors and mobile control.</p><div class="price"><strong>IoT Kit</strong><a class="btn ghost" href="projects.html">View</a></div></article>
-          <article class="card product reveal"><div class="product-visual">⚖️</div><h3>Self Balancing Robot</h3><p>Advanced robotics project using MPU6050, motors and control logic.</p><div class="price"><strong>Advanced</strong><a class="btn ghost" href="projects.html">View</a></div></article>
+        
+        <div class="filters">
+          <span class="pill active" data-home-filter="all">All Features</span>
+          <span class="pill" data-home-filter="robotics">Robotics Only</span>
+          <span class="pill" data-home-filter="iot">IoT Controls</span>
+        </div>
+
+        <div class="grid-3" id="homeProductGrid">
+          <article class="card product reveal" data-home-category="robotics">
+            <div class="product-visual">🚗</div>
+            <h3>Obstacle Avoiding Robot</h3>
+            <p>Beginner-friendly robotics kit with ultrasonic sensing and motor control.</p>
+            <div class="price"><strong>Project Kit</strong><a class="btn ghost" href="projects.html">View</a></div>
+          </article>
+          
+          <article class="card product reveal" data-home-category="iot">
+            <div class="product-visual">🌐</div>
+            <h3>IoT Smart Home</h3>
+            <p>ESP-based automation project for lights, sensors and mobile control.</p>
+            <div class="price"><strong>IoT Kit</strong><a class="btn ghost" href="projects.html">View</a></div>
+          </article>
+          
+          <article class="card product reveal" data-home-category="robotics">
+            <div class="product-visual">⚖️</div>
+            <h3>Self Balancing Robot</h3>
+            <p>Advanced robotics project using MPU6050, motors and control logic.</p>
+            <div class="price"><strong>Advanced</strong><a class="btn ghost" href="projects.html">View</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Got questions about our robotics configurations and kits? Here are quick structural insights.</p>
+        </div>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-trigger"><span>Do you deliver components across India?</span><span class="faq-icon">＋</span></button>
+            <div class="faq-content"><p>Yes! We provide secure Pan-India delivery options for all customized STEM labs and curated starter kits directly to your doorstep.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger"><span>Is source code support included in the kits?</span><span class="faq-icon">＋</span></button>
+            <div class="faq-content"><p>Absolutely. Every product variant includes comprehensive code layouts, wiring diagrams, and explicit logic explanations available through direct chat pathways.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger"><span>Can I request support for a custom school exhibition layout?</span><span class="faq-icon">＋</span></button>
+            <div class="faq-content"><p>Yes, you can use our direct custom messaging links to coordinate specialized institutional lab configurations or unique model setups directly with our team.</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -131,13 +325,10 @@
     <div class="container footer-bottom">© 2026 Zozotronics. Static HTML website ready for Cloudflare Pages.</div>
   </footer>
 
-  <!-- Floating Audio Interaction Element -->
   <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music">
-    <span class="music-icon" id="musicIcon">🎵</span>
-    <span id="musicText">Play Audio</span>
+    <span class="music-icon" id="musicIcon">🎵</span><span id="musicText">Play Audio</span>
   </button>
 
-  <!-- Audio Element -->
   <audio id="bgMusic" loop>
     <source src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -147,8 +338,8 @@
   
   <script src="script.js"></script>
   
-  <!-- Audio Control Logic Script -->
   <script>
+    // Traditional Media Action Handlers
     const musicBtn = document.getElementById('musicBtn');
     const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
@@ -156,19 +347,124 @@
 
     musicBtn.addEventListener('click', function() {
       if (bgMusic.paused) {
-        bgMusic.play()
-          .then(() => {
-            musicIcon.textContent = '⏸️';
-            musicText.textContent = 'Pause Audio';
-          })
-          .catch(error => {
-            console.log("Playback failed. Ensure the audio file exists in the directory.", error);
-          });
+        bgMusic.play().then(() => {
+          musicIcon.textContent = '⏸️';
+          musicText.textContent = 'Pause Audio';
+        }).catch(err => console.log("Audio target reference mismatch context.", err));
       } else {
         bgMusic.pause();
         musicIcon.textContent = '🎵';
         musicText.textContent = 'Play Audio';
       }
+    });
+
+    // ==========================================================================
+    // OPTION 1: CIRCUIT CANVAS MATH ENGINE CONTEXT
+    // ==========================================================================
+    const canvas = document.getElementById('circuitCanvas');
+    const ctx = canvas.getContext('2d');
+    let points = [];
+    const maxPoints = 35;
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for(let i=0; i<maxPoints; i++) {
+      points.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6
+      });
+    }
+
+    function animateCircuit() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      ctx.strokeStyle = isDark ? 'rgba(58, 80, 107, 0.25)' : 'rgba(30, 58, 138, 0.05)';
+      ctx.fillStyle = isDark ? 'rgba(91, 192, 190, 0.3)' : 'rgba(30, 58, 138, 0.15)';
+
+      points.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        for(let j = i + 1; j < points.length; j++) {
+          const p2 = points[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if(dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(animateCircuit);
+    }
+    animateCircuit();
+
+    // ==========================================================================
+    // OPTION 2: DARK MODE STORAGE SYSTEM RUNTIME
+    // ==========================================================================
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.body.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙 Dark';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️ Light';
+      }
+    });
+
+    // ==========================================================================
+    // OPTION 3: HOMEPAGE GALLERY FILTERS
+    // ==========================================================================
+    const homePills = document.querySelectorAll('[data-home-filter]');
+    const homeProducts = document.querySelectorAll('#homeProductGrid .product');
+
+    homePills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        homePills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        const selection = this.getAttribute('data-home-filter');
+
+        homeProducts.forEach(prod => {
+          const cat = prod.getAttribute('data-home-category');
+          if(selection === 'all' || cat === selection) {
+            prod.classList.remove('hidden');
+          } else {
+            prod.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // ==========================================================================
+    // OPTION 4: ACCORDION INTERACTION CONTROLS
+    // ==========================================================================
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const parent = this.parentElement;
+        const isOpen = parent.classList.contains('open');
+        
+        document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+        if(!isOpen) {
+          parent.classList.add('open');
+        }
+      });
     });
   </script>
 </body>
