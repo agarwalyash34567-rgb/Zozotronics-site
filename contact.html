@@ -5,10 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | ZOZOTRONICS</title>
   <meta name="description" content="Contact Zozotronics for robotics projects, STEM kits, school lab partnerships and WhatsApp inquiries.">
+  
+  <!-- Browser Tab Favicon Brand Icon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Open Graph Link Preview Tags -->
+  <meta property="og:title" content="Contact Us | ZOZOTRONICS">
+  <meta property="og:description" content="Get in touch with us for customized support, project layout briefs, and institutional logs.">
+  <meta property="og:image" content="https://zozotronics.store/logo.png">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .music-control-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 999;
+      background: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+    .music-control-btn:hover { transform: scale(1.05); opacity: 0.95; }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 150px;
+      right: 20px;
+      z-index: 998;
+      background: #ea580c;
+      color: white;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+    }
+    .scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top-btn:hover { transform: scale(1.1); }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -60,7 +117,6 @@
           <span class="kicker">Inquiry Form</span>
           <h2>Tell us what you need.</h2>
           <form class="form" id="whatsappForm">
-            <!-- Added IDs to gather inputs cleanly -->
             <input id="name" type="text" placeholder="Your name" required>
             <input id="phone" type="tel" placeholder="Phone number" required>
             <select id="service">
@@ -78,7 +134,6 @@
       </div>
     </section>
 
-    <!-- Horizontal Policy Notice Bar Implementation -->
     <section class="section" style="padding: 30px 0; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.02); width: 100%;">
       <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center;">
         <div><strong>⭐ Best Quality</strong><br><span style="font-size:14px; color:gray;">100% Tested STEM Components</span></div>
@@ -92,7 +147,6 @@
     <div class="container footer-grid">
       <div><h4>ZOZOTRONICS</h4><p>Robotics project support for students and schools.</p></div>
       <div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="projects.html">Projects</a></p><p><a href="schools.html">School Labs</a></p></div>
-      <!-- Updated Terms Section Box -->
       <div>
         <h4>Our Terms</h4>
         <p>🔒 100% Advance Payment</p>
@@ -104,9 +158,11 @@
     <div class="container footer-bottom">© 2026 Zozotronics.</div>
   </footer>
 
-  <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music" style="position: fixed; bottom: 90px; right: 20px; z-index: 999; background: #1e3a8a; color: #ffffff; border: none; border-radius: 50px; padding: 10px 18px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease;">
+  <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music">
     <span class="music-icon" id="musicIcon">🎵</span><span id="musicText">Play Audio</span>
   </button>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to Top">⬆</button>
 
   <audio id="bgMusic" loop>
     <source src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3" type="audio/mpeg">
@@ -116,13 +172,12 @@
   <a class="whatsapp-float" href="https://wa.me/7303832492" aria-label="WhatsApp">☘</a>
   
   <script src="script.js"></script>
-  
   <script>
-    // Audio Tracker Setup
     const musicBtn = document.getElementById('musicBtn');
     const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
 
     if (localStorage.getItem('musicPlaying') === 'true') {
       const savedTime = localStorage.getItem('musicPosition');
@@ -130,13 +185,11 @@
       bgMusic.play().then(() => {
         musicIcon.textContent = '⏸️';
         if(musicText) musicText.textContent = 'Pause Audio';
-      }).catch(err => console.log("State storage sync active."));
+      }).catch(err => console.log("State storage framework matrix mismatch pass."));
     }
 
     setInterval(() => {
-      if (!bgMusic.paused) {
-        localStorage.setItem('musicPosition', bgMusic.currentTime);
-      }
+      if (!bgMusic.paused) { localStorage.setItem('musicPosition', bgMusic.currentTime); }
     }, 1000);
 
     musicBtn.addEventListener('click', function() {
@@ -154,24 +207,25 @@
       }
     });
 
-    // Dynamic WhatsApp Text Compiler Logic
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) { scrollTopBtn.classList.add('visible'); } 
+      else { scrollTopBtn.classList.remove('visible'); }
+    });
+    scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
     document.getElementById('whatsappForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Stop standard blank page updates
-      
-      // Grab exactly what the customer typed
+      e.preventDefault();
       const userName = document.getElementById('name').value;
       const userPhone = document.getElementById('phone').value;
       const selectedService = document.getElementById('service').value;
       const userMessage = document.getElementById('message').value;
 
-      // Format the text into a clean message template
       const compiledText = `Hi Zozotronics! I have a new inquiry form submission:\n\n` + 
                            `👤 *Name:* ${userName}\n` +
                            `📞 *Phone:* ${userPhone}\n` +
                            `⚙️ *Requirement:* ${selectedService}\n` +
                            `📝 *Message Details:* ${userMessage}`;
 
-      // Open WhatsApp Web/App with the text safely attached
       const finalUrl = `https://wa.me/7303832492?text=${encodeURIComponent(compiledText)}`;
       window.open(finalUrl, '_blank');
     });
