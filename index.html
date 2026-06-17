@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ZOZOTRONICS | Robotics Kits, STEM Projects & School Labs</title>
   <meta name="description" content="Zozotronics provides robotics kits, STEM project guidance, school lab setup, curriculum support and WhatsApp-based project assistance across India.">
+  
+  <!-- Browser Tab Favicon Brand Icon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Open Graph Link Preview Tags -->
+  <meta property="og:title" content="ZOZOTRONICS | Robotics Kits & STEM Labs">
+  <meta property="og:description" content="Premium robotics kits, expert guidance, and custom STEM project support across India.">
+  <meta property="og:image" content="https://zozotronics.store/logo.png">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -81,11 +91,11 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: none; /* Allows text selection and clicks to go through */
+      pointer-events: none;
     }
     .hero-grid {
       position: relative;
-      z-index: 1; /* Places website hero info directly over background art nodes */
+      z-index: 1;
     }
 
     /* ==========================================================================
@@ -147,7 +157,7 @@
       color: #9ca3af;
     }
     .faq-item.open .faq-content {
-      max-height: 200px; /* Big enough to comfortably fit responses */
+      max-height: 200px;
       padding-top: 10px;
     }
     .faq-icon {
@@ -157,7 +167,6 @@
       transform: rotate(45deg);
     }
 
-    /* Original floating music component parameters preserved */
     .music-control-btn {
       position: fixed;
       bottom: 90px;
@@ -179,6 +188,35 @@
       transition: transform 0.2s ease;
     }
     .music-control-btn:hover { transform: scale(1.05); opacity: 0.95; }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 150px;
+      right: 20px;
+      z-index: 998;
+      background: #ea580c;
+      color: white;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+    }
+    .scroll-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .scroll-top-btn:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -326,7 +364,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div><h4>ZOZOTRONICS</h4><p>Robotics kits, STEM projects and school lab support for young innovators.</p></div>
-      <div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="schools.html">School Labs</a></p><p><a href="contact.html">Contact</a></p></div>
+      <div><h4>Pages</h4><p><a href="projects.html">Projects</a></p><p><a href="schools.html">School Labs</a></p><p><a href="contact.html">Contact</a></p></div>
       <div>
         <h4>Our Terms</h4>
         <p>🔒 100% Advance Payment</p>
@@ -342,6 +380,8 @@
     <span class="music-icon" id="musicIcon">🎵</span><span id="musicText">Play Audio</span>
   </button>
 
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to Top">⬆</button>
+
   <audio id="bgMusic" loop>
     <source src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -356,6 +396,7 @@
     const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
 
     if (localStorage.getItem('musicPlaying') === 'true') {
       const savedTime = localStorage.getItem('musicPosition');
@@ -386,6 +427,18 @@
         if(musicText) musicText.textContent = 'Play Audio';
         localStorage.setItem('musicPlaying', 'false');
       }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // ==========================================================================
@@ -443,9 +496,6 @@
     }
     animateCircuit();
 
-    // ==========================================================================
-    // OPTION 2: DARK MODE STORAGE SYSTEM RUNTIME
-    // ==========================================================================
     const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('data-theme');
@@ -458,9 +508,6 @@
       }
     });
 
-    // ==========================================================================
-    // OPTION 3: HOMEPAGE GALLERY FILTERS
-    // ==========================================================================
     const homePills = document.querySelectorAll('[data-home-filter]');
     const homeProducts = document.querySelectorAll('#homeProductGrid .product');
 
@@ -481,9 +528,6 @@
       });
     });
 
-    // ==========================================================================
-    // OPTION 4: ACCORDION INTERACTION CONTROLS
-    // ==========================================================================
     const faqTriggers = document.querySelectorAll('.faq-trigger');
     faqTriggers.forEach(trigger => {
       trigger.addEventListener('click', function() {
