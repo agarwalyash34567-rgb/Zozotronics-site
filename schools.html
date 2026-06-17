@@ -127,19 +127,41 @@
         </div>
       </div>
     </section>
+
+    <section class="section" style="padding: 30px 0; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.02); width: 100%;">
+      <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center;">
+        <div><strong>⭐ Best Quality</strong><br><span style="font-size:14px; color:gray;">100% Tested STEM Components</span></div>
+        <div><strong>💳 Advance Payment</strong><br><span style="font-size:14px; color:gray;">Orders processed post secure UPI confirmation</span></div>
+        <div><strong>🚫 No Refund Policy</strong><br><span style="font-size:14px; color:gray;">All project kit sales are final</span></div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-grid">
       <div><h4>ZOZOTRONICS</h4><p>Robotics kits and STEM projects for students.</p></div>
       <div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="projects.html">Projects</a></p></div>
+      <div>
+        <h4>Our Terms</h4>
+        <p>🔒 100% Advance Payment</p>
+        <p>🚫 No Refunds / Exchanges</p>
+        <p>💯 Premium Quality Tested Components</p>
+      </div>
       <div><h4>Contact</h4><p>+91 73038 32492</p><p>kidtronics07@gmail.com</p></div>
     </div>
     <div class="container footer-bottom">© 2026 Zozotronics.</div>
   </footer>
 
+  <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music" style="position: fixed; bottom: 90px; right: 20px; z-index: 999; background: #1e3a8a; color: #ffffff; border: none; border-radius: 50px; padding: 10px 18px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease;">
+    <span class="music-icon" id="musicIcon">🎵</span><span id="musicText">Play Audio</span>
+  </button>
+
+  <audio id="bgMusic" loop>
+    <source src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script>
-    // Configurator Selection Matrix Compilation Logic Chunk
     document.addEventListener('DOMContentLoaded', function() {
       const checkboxes = document.querySelectorAll('.lab-choice');
       const counterText = document.getElementById('configCounter');
@@ -154,15 +176,48 @@
         });
 
         counterText.textContent = `${selectedModules.length} Module${selectedModules.length === 1 ? '' : 's'} Selected`;
-
-        // Format direct message component string parameters for API transmission links
         const baseMsg = `Hi Zozotronics! I am planning a STEM lab setup for my school. Here are the modules I am interested in exploring:\n\n` + selectedModules.map((m, idx) => `${idx + 1}. ${m}`).join('\n');
-        
         waButton.href = `https://wa.me/7303832492?text=${encodeURIComponent(baseMsg)}`;
       }
 
       checkboxes.forEach(box => box.addEventListener('change', updateLabProposal));
-      updateLabProposal(); // Initial dynamic string construct validation frame pass
+      updateLabProposal();
+    });
+
+    // Integrated Audio Tracker System for Schools page
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicText = document.getElementById('musicText');
+
+    if (localStorage.getItem('musicPlaying') === 'true') {
+      const savedTime = localStorage.getItem('musicPosition');
+      if (savedTime) bgMusic.currentTime = parseFloat(savedTime);
+      bgMusic.play().then(() => {
+        musicIcon.textContent = '⏸️';
+        if(musicText) musicText.textContent = 'Pause Audio';
+      }).catch(err => console.log("State synchronization fail tracker block fallback pass active."));
+    }
+
+    setInterval(() => {
+      if (!bgMusic.paused) {
+        localStorage.setItem('musicPosition', bgMusic.currentTime);
+      }
+    }, 1000);
+
+    musicBtn.addEventListener('click', function() {
+      if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+          musicIcon.textContent = '⏸️';
+          if(musicText) musicText.textContent = 'Pause Audio';
+          localStorage.setItem('musicPlaying', 'true');
+        });
+      } else {
+        bgMusic.pause();
+        musicIcon.textContent = '🎵';
+        if(musicText) musicText.textContent = 'Play Audio';
+        localStorage.setItem('musicPlaying', 'false');
+      }
     });
   </script>
 </body>
