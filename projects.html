@@ -79,7 +79,6 @@
 
     <section class="section">
       <div class="container">
-        <!-- Functional Category Pills -->
         <div class="filters">
           <span class="pill active" data-filter="all">All</span>
           <span class="pill" data-filter="arduino">Arduino</span>
@@ -88,7 +87,6 @@
           <span class="pill" data-filter="advanced-robotics">Advanced Robotics</span>
         </div>
 
-        <!-- Comprehensive Project Grid -->
         <div class="grid-3" id="projectGrid">
           
           <article class="card product reveal" data-category="arduino advanced-robotics">
@@ -163,7 +161,6 @@
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20RFID%20Door%20Lock%20Kit.">Request Kit</a>
           </article>
 
-          <!-- New Project Addition 1 -->
           <article class="card product reveal" data-category="arduino advanced-robotics">
             <div class="product-visual">🏁</div>
             <h3>Line Follower Robot</h3>
@@ -176,7 +173,6 @@
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Line%20Follower%20Robot%20Kit.">Request Kit</a>
           </article>
 
-          <!-- New Project Addition 2 -->
           <article class="card product reveal" data-category="arduino school-models">
             <div class="product-visual">📡</div>
             <h3>Radar Tracking System</h3>
@@ -189,7 +185,6 @@
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Radar%20Tracking%20System%20Kit.">Request Kit</a>
           </article>
 
-          <!-- New Project Addition 3 -->
           <article class="card product reveal" data-category="school-models">
             <div class="product-visual">🗑️</div>
             <h3>Smart Dustbin Model</h3>
@@ -202,7 +197,6 @@
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Dustbin%20Model%20Kit.">Request Kit</a>
           </article>
 
-          <!-- New Project Addition 4 -->
           <article class="card product reveal" data-category="esp-iot school-models">
             <div class="product-visual">🌤️</div>
             <h3>IoT Weather Station</h3>
@@ -215,7 +209,6 @@
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20IoT%20Weather%20Station%20Kit.">Request Kit</a>
           </article>
 
-          <!-- New Project Addition 5 -->
           <article class="card product reveal" data-category="advanced-robotics arduino">
             <div class="product-visual">🦾</div>
             <h3>Bluetooth Robotic Arm</h3>
@@ -228,7 +221,6 @@
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Bluetooth%20Robotic%20Arm%20Kit.">Request Kit</a>
           </article>
 
-          <!-- New Project Addition 6 -->
           <article class="card product reveal" data-category="arduino school-models">
             <div class="product-visual">🦯</div>
             <h3>Smart Blind Stick</h3>
@@ -243,7 +235,6 @@
 
         </div>
 
-        <!-- Custom Project Interaction Element -->
         <div class="custom-project-box reveal">
           <h2>Have a unique project idea or specific school requirement?</h2>
           <p>Tell us your custom requirements, component specifications, or school theme. We will curate the ideal custom kit, diagram layout, and clear logic support just for your workspace.</p>
@@ -253,7 +244,6 @@
       </div>
     </section>
 
-    <!-- Horizontal Policy Notice Bar Implementation -->
     <section class="section" style="padding: 30px 0; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.02); width: 100%;">
       <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center;">
         <div><strong>⭐ Best Quality</strong><br><span style="font-size:14px; color:gray;">100% Tested STEM Components</span></div>
@@ -274,7 +264,6 @@
         <p><a href="index.html">Home</a></p>
         <p><a href="schools.html">School Labs</a></p>
       </div>
-      <!-- Updated Terms Section Box -->
       <div>
         <h4>Our Terms</h4>
         <p>🔒 100% Advance Payment</p>
@@ -290,11 +279,19 @@
     <div class="container footer-bottom">© 2026 Zozotronics.</div>
   </footer>
 
+  <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music" style="position: fixed; bottom: 90px; right: 20px; z-index: 999; background: #1e3a8a; color: #ffffff; border: none; border-radius: 50px; padding: 10px 18px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease;">
+    <span class="music-icon" id="musicIcon">🎵</span><span id="musicText">Play Audio</span>
+  </button>
+
+  <audio id="bgMusic" loop>
+    <source src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <a class="whatsapp-float" href="https://wa.me/7303832492" aria-label="WhatsApp">☘</a>
   
   <script src="script.js"></script>
 
-  <!-- Filter Functionality Logic Chunks -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const pills = document.querySelectorAll('.filters .pill');
@@ -302,9 +299,7 @@
 
       pills.forEach(pill => {
         pill.addEventListener('click', function() {
-          // Remove active color layout from old pills
           pills.forEach(p => p.classList.remove('active'));
-          // Apply active styling highlight to clicked choice
           this.classList.add('active');
 
           const filterValue = this.getAttribute('data-filter');
@@ -314,7 +309,6 @@
             
             if (filterValue === 'all' || categories.includes(filterValue)) {
               product.classList.remove('hidden');
-              // Little CSS reset trigger for custom reveal engines if active
               setTimeout(() => { product.style.opacity = '1'; product.style.transform = 'scale(1)'; }, 10);
             } else {
               product.style.opacity = '0';
@@ -324,6 +318,42 @@
           });
         });
       });
+    });
+
+    // Integrated Audio Tracker System for Projects page
+    const musicBtn = document.getElementById('musicBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicText = document.getElementById('musicText');
+
+    if (localStorage.getItem('musicPlaying') === 'true') {
+      const savedTime = localStorage.getItem('musicPosition');
+      if (savedTime) bgMusic.currentTime = parseFloat(savedTime);
+      bgMusic.play().then(() => {
+        musicIcon.textContent = '⏸️';
+        if(musicText) musicText.textContent = 'Pause Audio';
+      }).catch(err => console.log("State sync handler standard block execution frame pass."));
+    }
+
+    setInterval(() => {
+      if (!bgMusic.paused) {
+        localStorage.setItem('musicPosition', bgMusic.currentTime);
+      }
+    }, 1000);
+
+    musicBtn.addEventListener('click', function() {
+      if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+          musicIcon.textContent = '⏸️';
+          if(musicText) musicText.textContent = 'Pause Audio';
+          localStorage.setItem('musicPlaying', 'true');
+        });
+      } else {
+        bgMusic.pause();
+        musicIcon.textContent = '🎵';
+        if(musicText) musicText.textContent = 'Play Audio';
+        localStorage.setItem('musicPlaying', 'false');
+      }
     });
   </script>
 </body>
