@@ -5,12 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects & Kits | ZOZOTRONICS</title>
   <meta name="description" content="Explore robotics, IoT, Arduino, ESP and STEM project kits from Zozotronics.">
+  
+  <!-- Browser Tab Favicon Brand Icon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Open Graph Link Preview Tags -->
+  <meta property="og:title" content="Projects & Kits | ZOZOTRONICS">
+  <meta property="og:description" content="Explore our complete line of robotics, IoT, and custom STEM exhibition projects.">
+  <meta property="og:image" content="https://zozotronics.store/logo.png">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Smooth CSS animations for the category filter */
     .product {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
@@ -21,7 +30,6 @@
       cursor: pointer;
       user-select: none;
     }
-    /* Style for the custom project showcase section */
     .custom-project-box {
       background: linear-gradient(135deg, #1e3a8a, #0d1b3e);
       color: white;
@@ -31,15 +39,54 @@
       margin-top: 60px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-    .custom-project-box h2 {
+    .custom-project-box h2 { color: white; margin-bottom: 12px; }
+    .custom-project-box p { color: #dbe7ff; max-width: 600px; margin: 0 auto 24px auto; }
+
+    .music-control-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 999;
+      background: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+    .music-control-btn:hover { transform: scale(1.05); opacity: 0.95; }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 150px;
+      right: 20px;
+      z-index: 998;
+      background: #ea580c;
       color: white;
-      margin-bottom: 12px;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.2s ease;
     }
-    .custom-project-box p {
-      color: #dbe7ff;
-      max-width: 600px;
-      margin: 0 auto 24px auto;
-    }
+    .scroll-top-btn.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top-btn:hover { transform: scale(1.1); }
   </style>
 </head>
 <body>
@@ -88,16 +135,11 @@
         </div>
 
         <div class="grid-3" id="projectGrid">
-          
           <article class="card product reveal" data-category="arduino advanced-robotics">
             <div class="product-visual">🚗</div>
             <h3>Obstacle Avoiding Robot</h3>
             <p>Ultrasonic sensor robot with motor driver and beginner-friendly wiring.</p>
-            <ul class="list">
-              <li>Arduino compatible</li>
-              <li>Simple explanation</li>
-              <li>Good for school demo</li>
-            </ul>
+            <ul class="list"><li>Arduino compatible</li><li>Simple explanation</li><li>Good for school demo</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Obstacle%20Avoiding%20Robot%20Kit.">Request Kit</a>
           </article>
 
@@ -105,11 +147,7 @@
             <div class="product-visual">📱</div>
             <h3>Bluetooth Controlled Car</h3>
             <p>Mobile-controlled robot car with motor driver, battery wiring and app control.</p>
-            <ul class="list">
-              <li>Wireless control</li>
-              <li>Beginner robotics</li>
-              <li>Fast build</li>
-            </ul>
+            <ul class="list"><li>Wireless control</li><li>Beginner robotics</li><li>Fast build</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Bluetooth%20Controlled%20Car%20Kit.">Request Kit</a>
           </article>
 
@@ -117,11 +155,7 @@
             <div class="product-visual">🏠</div>
             <h3>IoT Smart Home</h3>
             <p>ESP8266/ESP32 automation project for lights, relays and sensor dashboards.</p>
-            <ul class="list">
-              <li>Wi-Fi control</li>
-              <li>Automation logic</li>
-              <li>IoT presentation</li>
-            </ul>
+            <ul class="list"><li>Wi-Fi control</li><li>Automation logic</li><li>IoT presentation</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20IoT%20Smart%20Home%20Kit.">Request Kit</a>
           </article>
 
@@ -129,11 +163,7 @@
             <div class="product-visual">⚖️</div>
             <h3>Self Balancing Robot</h3>
             <p>MPU6050, motor driver and PID control concept for advanced learners.</p>
-            <ul class="list">
-              <li>Advanced robotics</li>
-              <li>Sensor fusion concept</li>
-              <li>Control system demo</li>
-            </ul>
+            <ul class="list"><li>Advanced robotics</li><li>Sensor fusion concept</li><li>Control system demo</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Self%20Balancing%20Robot%20Kit.">Request Kit</a>
           </article>
 
@@ -141,11 +171,7 @@
             <div class="product-visual">🌱</div>
             <h3>Smart Irrigation</h3>
             <p>Soil moisture sensing project with relay-controlled water pump automation.</p>
-            <ul class="list">
-              <li>Agriculture model</li>
-              <li>Sensor-based</li>
-              <li>School exhibition</li>
-            </ul>
+            <ul class="list"><li>Agriculture model</li><li>Sensor-based</li><li>School exhibition</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Irrigation%20Kit.">Request Kit</a>
           </article>
 
@@ -153,11 +179,7 @@
             <div class="product-visual">🔐</div>
             <h3>RFID Door Lock</h3>
             <p>Security project with RFID module, servo/relay and access control logic.</p>
-            <ul class="list">
-              <li>Security system</li>
-              <li>Arduino based</li>
-              <li>Clear demo flow</li>
-            </ul>
+            <ul class="list"><li>Security system</li><li>Arduino based</li><li>Clear demo flow</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20RFID%20Door%20Lock%20Kit.">Request Kit</a>
           </article>
 
@@ -165,11 +187,7 @@
             <div class="product-visual">🏁</div>
             <h3>Line Follower Robot</h3>
             <p>Autonomous bot that tracks black lines perfectly using a dual IR sensor module array.</p>
-            <ul class="list">
-              <li>No programming option</li>
-              <li>Classic competition build</li>
-              <li>Highly stable configuration</li>
-            </ul>
+            <ul class="list"><li>No programming option</li><li>Classic competition build</li><li>Highly stable configuration</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Line%20Follower%20Robot%20Kit.">Request Kit</a>
           </article>
 
@@ -177,11 +195,7 @@
             <div class="product-visual">📡</div>
             <h3>Radar Tracking System</h3>
             <p>Ultrasonic map plotter tracking objects using a rotating structural servo bracket setup.</p>
-            <ul class="list">
-              <li>Visual interface mapping</li>
-              <li>Excellent science fair pick</li>
-              <li>Includes servo controls</li>
-            </ul>
+            <ul class="list"><li>Visual interface mapping</li><li>Excellent science fair pick</li><li>Includes servo controls</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Radar%20Tracking%20System%20Kit.">Request Kit</a>
           </article>
 
@@ -189,11 +203,7 @@
             <div class="product-visual">🗑️</div>
             <h3>Smart Dustbin Model</h3>
             <p>Touchless auto-opening dustbin using proximity modules and a micro actuator motor.</p>
-            <ul class="list">
-              <li>Zero coding overhead option</li>
-              <li>Great elementary project</li>
-              <li>Eco-innovation theme</li>
-            </ul>
+            <ul class="list"><li>Zero coding overhead option</li><li>Great elementary project</li><li>Eco-innovation theme</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Dustbin%20Model%20Kit.">Request Kit</a>
           </article>
 
@@ -201,11 +211,7 @@
             <div class="product-visual">🌤️</div>
             <h3>IoT Weather Station</h3>
             <p>Real-time microclimate hub broadcasting live air metrics directly to custom dashboards.</p>
-            <ul class="list">
-              <li>Cloud telemetry tracking</li>
-              <li>Advanced DHT sensor integrations</li>
-              <li>Great remote ecosystem node</li>
-            </ul>
+            <ul class="list"><li>Cloud telemetry tracking</li><li>Advanced DHT sensor integrations</li><li>Great remote ecosystem node</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20IoT%20Weather%20Station%20Kit.">Request Kit</a>
           </article>
 
@@ -213,11 +219,7 @@
             <div class="product-visual">🦾</div>
             <h3>Bluetooth Robotic Arm</h3>
             <p>Multi-axis articulation crane arm controlled seamlessly via wireless application links.</p>
-            <ul class="list">
-              <li>Precision servo coordination</li>
-              <li>Mechanical linkages assembly</li>
-              <li>High engagement project</li>
-            </ul>
+            <ul class="list"><li>Precision servo coordination</li><li>Mechanical linkages assembly</li><li>High engagement project</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Bluetooth%20Robotic%20Arm%20Kit.">Request Kit</a>
           </article>
 
@@ -225,14 +227,9 @@
             <div class="product-visual">🦯</div>
             <h3>Smart Blind Stick</h3>
             <p>Social innovation assistive tech using sound arrays to alert sensory blocks cleanly.</p>
-            <ul class="list">
-              <li>Acoustic notification buzzers</li>
-              <li>Social project entry pick</li>
-              <li>Very practical wiring flow</li>
-            </ul>
+            <ul class="list"><li>Acoustic notification buzzers</li><li>Social project entry pick</li><li>Very practical wiring flow</li></ul>
             <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Blind%20Stick%20Kit.">Request Kit</a>
           </article>
-
         </div>
 
         <div class="custom-project-box reveal">
@@ -240,7 +237,6 @@
           <p>Tell us your custom requirements, component specifications, or school theme. We will curate the ideal custom kit, diagram layout, and clear logic support just for your workspace.</p>
           <a class="btn orange" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20want%20to%20submit%20a%20requirement%20for%20a%20custom%20STEM/Robotics%20project.">Discuss Custom Build on WhatsApp</a>
         </div>
-
       </div>
     </section>
 
@@ -279,9 +275,11 @@
     <div class="container footer-bottom">© 2026 Zozotronics.</div>
   </footer>
 
-  <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music" style="position: fixed; bottom: 90px; right: 20px; z-index: 999; background: #1e3a8a; color: #ffffff; border: none; border-radius: 50px; padding: 10px 18px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease;">
+  <button id="musicBtn" class="music-control-btn" aria-label="Play Background Music">
     <span class="music-icon" id="musicIcon">🎵</span><span id="musicText">Play Audio</span>
   </button>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to Top">⬆</button>
 
   <audio id="bgMusic" loop>
     <source src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3" type="audio/mpeg">
@@ -296,17 +294,16 @@
     document.addEventListener('DOMContentLoaded', function() {
       const pills = document.querySelectorAll('.filters .pill');
       const products = document.querySelectorAll('#projectGrid .product');
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
 
       pills.forEach(pill => {
         pill.addEventListener('click', function() {
           pills.forEach(p => p.classList.remove('active'));
           this.classList.add('active');
-
           const filterValue = this.getAttribute('data-filter');
 
           products.forEach(product => {
             const categories = product.getAttribute('data-category').split(' ');
-            
             if (filterValue === 'all' || categories.includes(filterValue)) {
               product.classList.remove('hidden');
               setTimeout(() => { product.style.opacity = '1'; product.style.transform = 'scale(1)'; }, 10);
@@ -318,9 +315,20 @@
           });
         });
       });
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+      });
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
 
-    // Integrated Audio Tracker System for Projects page
     const musicBtn = document.getElementById('musicBtn');
     const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
@@ -332,7 +340,7 @@
       bgMusic.play().then(() => {
         musicIcon.textContent = '⏸️';
         if(musicText) musicText.textContent = 'Pause Audio';
-      }).catch(err => console.log("State sync handler standard block execution frame pass."));
+      }).catch(err => console.log("State sync handler baseline loop execution."));
     }
 
     setInterval(() => {
