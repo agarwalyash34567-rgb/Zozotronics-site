@@ -59,9 +59,10 @@
         <section class="contact-card reveal" id="form">
           <span class="kicker">Inquiry Form</span>
           <h2>Tell us what you need.</h2>
-          <form class="form">
-            <input id="name" type="text" placeholder="Your name">
-            <input type="tel" placeholder="Phone number">
+          <form class="form" id="whatsappForm">
+            <!-- Added IDs to gather inputs cleanly -->
+            <input id="name" type="text" placeholder="Your name" required>
+            <input id="phone" type="tel" placeholder="Phone number" required>
             <select id="service">
               <option>Robotics project kit</option>
               <option>Custom student project</option>
@@ -69,14 +70,15 @@
               <option>Bulk components</option>
               <option>Technical guidance</option>
             </select>
-            <textarea id="message" placeholder="Write your project idea, class/college, deadline, components needed, or lab requirement."></textarea>
-            <button type="button" class="btn orange" onclick="window.location.href='https://wa.me/7303832492'">Send on WhatsApp</button>
+            <textarea id="message" placeholder="Write your project idea, class/college, deadline, components needed, or lab requirement." required></textarea>
+            <button type="submit" class="btn orange">Send on WhatsApp</button>
             <a class="btn-ghost" href="mailto:kidtronics07@gmail.com?subject=Zozotronics%20Inquiry">Send Email Instead</a>
           </form>
         </section>
       </div>
     </section>
 
+    <!-- Horizontal Policy Notice Bar Implementation -->
     <section class="section" style="padding: 30px 0; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.02); width: 100%;">
       <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center;">
         <div><strong>⭐ Best Quality</strong><br><span style="font-size:14px; color:gray;">100% Tested STEM Components</span></div>
@@ -90,6 +92,7 @@
     <div class="container footer-grid">
       <div><h4>ZOZOTRONICS</h4><p>Robotics project support for students and schools.</p></div>
       <div><h4>Pages</h4><p><a href="index.html">Home</a></p><p><a href="projects.html">Projects</a></p><p><a href="schools.html">School Labs</a></p></div>
+      <!-- Updated Terms Section Box -->
       <div>
         <h4>Our Terms</h4>
         <p>🔒 100% Advance Payment</p>
@@ -115,7 +118,7 @@
   <script src="script.js"></script>
   
   <script>
-    // Integrated Audio Tracker System for Contact page
+    // Audio Tracker Setup
     const musicBtn = document.getElementById('musicBtn');
     const bgMusic = document.getElementById('bgMusic');
     const musicIcon = document.getElementById('musicIcon');
@@ -127,7 +130,7 @@
       bgMusic.play().then(() => {
         musicIcon.textContent = '⏸️';
         if(musicText) musicText.textContent = 'Pause Audio';
-      }).catch(err => console.log("State storage sync channel skip frame active pass."));
+      }).catch(err => console.log("State storage sync active."));
     }
 
     setInterval(() => {
@@ -149,6 +152,28 @@
         if(musicText) musicText.textContent = 'Play Audio';
         localStorage.setItem('musicPlaying', 'false');
       }
+    });
+
+    // Dynamic WhatsApp Text Compiler Logic
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Stop standard blank page updates
+      
+      // Grab exactly what the customer typed
+      const userName = document.getElementById('name').value;
+      const userPhone = document.getElementById('phone').value;
+      const selectedService = document.getElementById('service').value;
+      const userMessage = document.getElementById('message').value;
+
+      // Format the text into a clean message template
+      const compiledText = `Hi Zozotronics! I have a new inquiry form submission:\n\n` + 
+                           `👤 *Name:* ${userName}\n` +
+                           `📞 *Phone:* ${userPhone}\n` +
+                           `⚙️ *Requirement:* ${selectedService}\n` +
+                           `📝 *Message Details:* ${userMessage}`;
+
+      // Open WhatsApp Web/App with the text safely attached
+      const finalUrl = `https://wa.me/7303832492?text=${encodeURIComponent(compiledText)}`;
+      window.open(finalUrl, '_blank');
     });
   </script>
 </body>
