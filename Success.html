@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Initiated | ZOZOTRONICS</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .success-wrapper { min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .success-box { max-width: 550px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+    [data-theme="dark"] .success-box { background: #1c2541; border-color: #3a506b; }
+    .success-icon { font-size: 64px; animation: scaleUp 0.5s ease-out; }
+    h1 { font-size: 28px; margin: 20px 0 10px 0; font-weight: 800; }
+    .redirect-notice { color: #6b7280; margin-bottom: 30px; font-size: 15px; }
+    .policy-box { background: rgba(234, 88, 12, 0.06); border: 1px dashed #ea580c; border-radius: 12px; padding: 18px; margin-bottom: 30px; text-align: left; }
+    .policy-box h4 { color: #ea580c; margin: 0 0 6px 0; font-size: 15px; font-weight: 700; }
+    .policy-box p { font-size: 13px; margin: 0; color: #4b5563; }
+    [data-theme="dark"] .policy-box p { color: #d1d5db; }
+    @keyframes scaleUp { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+  </style>
+</head>
+<body>
+  <div class="success-wrapper">
+    <div class="success-box">
+      <div class="success-icon">🚀</div>
+      <h1>Inquiry Structured Safely!</h1>
+      <p class="redirect-notice">Your robotics specifications have been compiled. We are opening WhatsApp to finalize your build configuration panels.</p>
+      
+      <div class="policy-box">
+        <h4>🔒 Commercial Workspace Protocol</h4>
+        <p>Orders are officially locked and structural components are queued for testing immediately following secure UPI confirmation. All custom kit allocations remain final.</p>
+      </div>
+
+      <a id="launchWABtn" class="btn orange" href="#" style="width:100%; display:block; padding:14px; font-size:16px;">Launch Verification Portal Now</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Grab text details saved from the contact form submission box
+      const finalMsg = localStorage.getItem('lastWaMessage');
+      const targetUrl = `https://wa.me/7303832492?text=${encodeURIComponent(finalMsg || 'Hi Zozotronics!')}`;
+      document.getElementById('launchWABtn').href = targetUrl;
+      
+      // Auto-launch the app link after 3 seconds for a true premium app layout feel
+      setTimeout(() => { window.location.href = targetUrl; }, 3000);
+    });
+  </script>
+</body>
+</html>
