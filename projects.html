@@ -1,19 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMCRZ5QF8L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YMCRZ5QF8L');
+  </script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects & Kits | ZOZOTRONICS</title>
   <meta name="description" content="Explore robotics, IoT, Arduino, ESP and STEM project kits from Zozotronics.">
   <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- Open Graph Link Preview Tags -->
   <meta property="og:title" content="Projects & Kits | ZOZOTRONICS">
   <meta property="og:description" content="Explore our complete line of robotics, IoT, and custom STEM exhibition projects.">
   <meta property="og:image" content="https://zozotronics.store/logo.png">
   <meta property="og:type" content="website">
 
-  <!-- Google Schema Markup Engine Link -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -146,7 +153,7 @@
             <h3>RFID Door Lock</h3>
             <p>Security project with RFID module, servo/relay and access control logic.</p>
             <ul class="list"><li>Security system</li><li>Arduino based</li><li>Clear demo flow</li></ul>
-            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20RFID%20Door%20Lock%20Kit.">Request Kit</a>
+            <a class="btn primary" href="https://wa.me/7303832492?text=Hi%20Zozotronics,%20I%20am%20interested%20in%20the%20Smart%20Irrigation%20Kit.">Request Kit</a>
           </article>
 
           <article class="card product reveal" data-category="arduino advanced-robotics">
@@ -230,7 +237,6 @@
     <div class="container footer-bottom">© 2026 Zozotronics.</div>
   </footer>
 
-  <!-- Modal Overlay Elements Setup Layout Container -->
   <div id="kitModal" class="modal-overlay" onclick="closeKitModal(event)">
     <div class="modal-window" onclick="event.stopPropagation()">
       <span class="close-modal" onclick="hideKitModal()">&times;</span>
@@ -288,57 +294,4 @@
 
           products.forEach(product => {
             const categories = product.getAttribute('data-category').split(' ');
-            if (filterValue === 'all' || categories.includes(filterValue)) {
-              product.classList.remove('hidden');
-              setTimeout(() => { product.style.opacity = '1'; product.style.transform = 'scale(1)'; }, 10);
-            } else {
-              product.style.opacity = '0';
-              product.style.transform = 'scale(0.95)';
-              product.classList.add('hidden');
-            }
-          });
-        });
-      });
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) { scrollTopBtn.classList.add('visible'); } 
-        else { scrollTopBtn.classList.remove('visible'); }
-      });
-      scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    });
-
-    const musicBtn = document.getElementById('musicBtn');
-    const bgMusic = document.getElementById('bgMusic');
-    const musicIcon = document.getElementById('musicIcon');
-    const musicText = document.getElementById('musicText');
-
-    if (localStorage.getItem('musicPlaying') === 'true') {
-      const savedTime = localStorage.getItem('musicPosition');
-      if (savedTime) bgMusic.currentTime = parseFloat(savedTime);
-      bgMusic.play().then(() => {
-        musicIcon.textContent = '⏸️';
-        if(musicText) musicText.textContent = 'Pause Audio';
-      }).catch(err => console.log("State sync runtime context active loop."));
-    }
-
-    setInterval(() => {
-      if (!bgMusic.paused) { localStorage.setItem('musicPosition', bgMusic.currentTime); }
-    }, 1000);
-
-    musicBtn.addEventListener('click', function() {
-      if (bgMusic.paused) {
-        bgMusic.play().then(() => {
-          musicIcon.textContent = '⏸️';
-          if(musicText) musicText.textContent = 'Pause Audio';
-          localStorage.setItem('musicPlaying', 'true');
-        });
-      } else {
-        bgMusic.pause();
-        musicIcon.textContent = '🎵';
-        if(musicText) musicText.textContent = 'Play Audio';
-        localStorage.setItem('musicPlaying', 'false');
-      }
-    });
-  </script>
-</body>
-</html>
+            if
